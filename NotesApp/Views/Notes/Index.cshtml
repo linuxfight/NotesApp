@@ -1,0 +1,31 @@
+﻿@using System.Data
+@model DataTable
+
+<h1> All notes </h1>
+<table class="table table-hover">
+	<thead>
+		<tr>
+			<th scope="col"> Id </th>
+			<th scope="col"> Title </th>
+			<th scope="col"> Message </th>
+			<th scope="col"> Actions </th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (DataRow row in Model.Rows)
+		{
+			<tr>
+				<td scope="row"> @row["Id"] </td>
+				<td scope="row"> @row["Title"] </td>
+				<td scope="row"> @row["Message"] </td>
+				<td scope="row"> 
+					<form method="get">
+						<input type="text" value="@row["Id"]" name="id" hidden/>
+						<input type="submit" value="Edit" class="btn btn-primary" asp-action="EditNote"/>
+						<input type="submit" value="Delete" class="btn btn-danger" asp-action="DeleteNote" />
+					</form>
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>

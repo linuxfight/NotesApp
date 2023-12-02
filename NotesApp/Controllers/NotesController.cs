@@ -52,6 +52,17 @@ namespace NotesApp.Controllers
 		}
 
 		[HttpGet]
+		public IActionResult ConfirmDeleteNote(int id)
+		{
+			var note = _dataBase.GetNote(id);
+			if (note == null)
+			{
+				return RedirectToAction("Index");
+			}
+			return View(note);
+		}
+
+		[HttpPost]
 		public IActionResult DeleteNote(int id)
 		{
 			_dataBase.DeleteNote(id);

@@ -11,6 +11,10 @@ namespace NoteApp_Console.Data
 	public class NotesContext : DbContext
 	{
 		public DbSet<Note> Notes { get; set; }
+		public DbSet<NoteAdd> NotesAdd { get; set; }
+		public DbSet<User> Users { get; set; }
+		public DbSet<Tag> Tags { get; set; }
+		public DbSet<TagNote> TagsNotes { get; set; }
 		public string DbPath { get; }
 
 		public NotesContext()

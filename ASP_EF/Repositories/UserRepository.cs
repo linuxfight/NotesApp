@@ -21,8 +21,12 @@ namespace ASP_EF.Repositories
 		{
 			return _context.Users.FirstOrDefault(x => x.Id == id);
 		}
+        public User? Get(string name)
+        {
+            return _context.Users.FirstOrDefault(x => x.Name == name);
+        }
 
-		public void Add(User user)
+        public void Add(User user)
 		{
 			_context.Users.Add(user);
 			_context.SaveChanges();

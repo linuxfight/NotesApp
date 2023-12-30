@@ -19,14 +19,31 @@ namespace ASP_EF.Controllers
 
 		public IActionResult Index()
 		{	
-			var notes = _noterepository.GetAll();
-			var users = _userrepository.GetAll();
 			return View();
 		}
 
 		public IActionResult Privacy()
 		{
 			return View();
+		}
+
+        [HttpGet]
+        public IActionResult Login()
+        {
+			return View();
+        }
+
+        [HttpPost]
+		public IActionResult Login(string name)
+		{
+			if (_userrepository.Get(name) is not null)
+			{
+                return RedirectToAction("Index");
+			}
+			else
+			{
+				return View();
+			}
 		}
 	}
 }

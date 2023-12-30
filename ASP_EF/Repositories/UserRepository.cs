@@ -38,9 +38,9 @@ namespace ASP_EF.Repositories
 			}
 		}
 
-		public void Update(int id, User user)
+		public void Update(User user)
 		{
-			var userToUpdate = Get(id);
+			var userToUpdate = Get(user.Id);
 			if (userToUpdate != null)
 			{
 				userToUpdate.Name = user.Name;

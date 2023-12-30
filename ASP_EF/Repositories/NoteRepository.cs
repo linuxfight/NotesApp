@@ -38,9 +38,9 @@ namespace ASP_EF.Repositories
 			}
 		}
 
-		public void Update(int id, Note note)
+		public void Update(Note note)
 		{
-			var noteToUpdate = Get(id);
+			var noteToUpdate = Get(note.Id);
 			if (noteToUpdate != null)
 			{
 				noteToUpdate.Title = note.Title;
